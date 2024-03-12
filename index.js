@@ -31,15 +31,15 @@ app.post("/signup",async(req,res)=>{
         }
         console.log("Record inserted")
     })
-    return res.redirect('home.html')
+    return res.redirect('index.html')
 })
 
 app.get("/signup",(req,res)=>{
     res.render("signup")
 })
 
-app.get("/home", (req,res)=>{
-    res.redirect('home')
+app.get("/index", (req,res)=>{
+    res.redirect('index')
 })
 
 app.get("/chatbot",(req,res)=>{
@@ -55,14 +55,14 @@ app.post("/login",(req,res)=>{
         const check=db.collection.findOne({name:req.body.name})
 
         if(check.password==req.body.password){
-           res.redirect('home.html')
+           res.redirect('index.html')
         }
         else{
             res.send("Wrong password")
         }
     }
     catch{
-        res.redirect('home.html')
+        res.redirect('index.html')
     }
 })
 
